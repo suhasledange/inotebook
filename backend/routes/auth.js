@@ -4,12 +4,12 @@ const User = require("../models/User")
 const { body, validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const fetchuser = require('../middleware/fetchuser')
 
 const JWT_SECRET = "iNoteBook";
 
-
 //create a user using :POST "/api/auth/"
-
+//ROUTE 1
 Router.post("/createuser", [
     body('name', "Enter a valid name").isLength({ min: 3 }),
     body('email', "Enter a valid email").isEmail(),
@@ -64,6 +64,8 @@ Router.post("/createuser", [
     }
 })
 
+//ROUTE 2
+
  //authenticate a user using POST "api/auth/login"
 
  Router.post("/login", [
@@ -108,5 +110,18 @@ Router.post("/createuser", [
 
 })
 
+//ROUTE 3
+Router.post("/getuser",fetchuser,async (req, res) => {
+   
 
+try {
+    let userId = req.user.id;
+    const user = await User.findById(userId).select("-password")
+    res.send(user)
+    
+} catch (error) {
+    console.error(error.message);
+    res.status(500).send("some error occured")
+}
+})
 module.exports = Router;
