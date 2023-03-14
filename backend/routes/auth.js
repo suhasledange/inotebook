@@ -108,20 +108,19 @@ Router.post("/createuser", [
         res.status(500).send("some error occured")
     }
 
-})
+});
 
 //ROUTE 3
 Router.post("/getuser",fetchuser,async (req, res) => {
-   
 
 try {
     let userId = req.user.id;
     const user = await User.findById(userId).select("-password")
     res.send(user)
-    
+
 } catch (error) {
     console.error(error.message);
     res.status(500).send("some error occured")
 }
-})
+});
 module.exports = Router;
