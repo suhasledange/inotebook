@@ -1,0 +1,148 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    outline: 0;
+    border: 0;
+    list-style: none;
+    text-decoration: none;
+
+}
+body{
+    background: var(--color-bg3);
+    font-family: 'Montserrat', sans-serif;
+font-family: 'Open Sans', sans-serif;
+    line-height: 1.7;
+    position: relative;
+}
+:root{
+    --color-bg:#ff3d3d;
+    --color-bg1:#FF6969;
+    --color-bg2:#FFD3B0;
+    --color-bg3:#FFF9DE;
+    --color-bg4:#A6D0DD;
+    --color-black:#000000;
+    --color-black1:#313131;
+    --color-white:#ffffff;
+    --color-light:#c6c6c6;
+
+    --container-width-lg:80%;
+    --container-width-md:90%;
+    --container-width-sm:94%;
+
+    --transition: all 300ms ease;
+}
+.window-scroll{
+    box-shadow: 0 0 1rem 1rem rgba(0, 0, 0, 0.05);
+}
+.container{
+    width:var(--container-width-lg);
+    margin: 0 auto;
+}
+section{
+    overflow: hidden;
+}
+h1{
+    font-size: 1.2rem;
+}
+h2{
+    font-size: 2rem;
+}
+h3{
+    font-size: 4.6rem;
+}
+h4{
+    font-size: 1.3rem;
+}
+a{
+    color: var(--color-black);
+}
+img{
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
+.btn{
+    display: inline-block;
+    background: var(--color-bg1);
+    color: var(--color-white);
+    padding: 0.8rem 1.5rem;
+    border: 1px solid transparent;
+    font-weight: 500;
+    transition: var(--transition);
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+.btn:hover{
+    background: transparent;
+    color:var(--color-white);
+    border-color: var(--color-white);
+}
+
+nav{
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0;
+    background: var(--color-bg1);
+    height: 6rem;
+    display: flex;
+    z-index: 10;
+}
+nav .container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+nav .container .contain .navbarbtn{
+        font-size: 1.4rem;
+        color: var(--color-bg3);
+        letter-spacing: 1.5px;
+        margin: 0 1.5rem;
+        position: relative;
+        text-decoration: none;
+        padding-bottom: 6px;
+        cursor: pointer;
+        transition: var(--transition);
+        font-weight: 600;
+}
+nav .container .contain .navbarbtn:hover{
+    color: var(--color-bg2);
+}
+
+nav .container .contain .navbarbtn:after{
+    position: absolute;
+    content: '';
+    background: var(--color-bg);
+    width: 100%;
+    height: 5px;
+    left: 0;
+    bottom: 0;
+    transform: scale(0);
+    transition: var(--transition);
+}
+
+nav .container .contain .navbarbtn:hover:after{
+    transform: scale(1);
+}
+.contain h1{
+    font-size: 1.8rem;
+    font-weight: bolder;
+    color: var(--color-bg3);
+    letter-spacing: 1.5px;
+    cursor: pointer;
+}
+.navbtn{
+    border: 1px solid var(--color-white);
+    margin-left: 1.5rem;
+    padding: 0.4rem 1.5rem;
+    font-size: 1.34rem;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+.navbtn:hover{
+    background: var(--color-bg1);
+    color: var(--color-bg2);
+    border-color: var(--color-bg2);
+}

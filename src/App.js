@@ -7,18 +7,24 @@ import {
 import Navbar from './components/Navbar';
 import About from './components/About';
 import Home from './components/Home';
-
+import NoteState from './context/notes/NoteState';
+import Footer from './components/Footer'
 function App() {
   return (
-    <Router>
     <>
+    <NoteState>
+    <Router>  
     <Navbar/>
-    <Routes>
+    <div className='Homecontainer'>
+        <Routes>
         <Route path="/" element={ <Home/> } />
         <Route path="about" element={ <About/> } />
       </Routes>
-    </>
+    </div>
+    <Footer/>
     </Router>
+    </NoteState>
+    </>
   );
 }
 
