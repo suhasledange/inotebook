@@ -9,7 +9,7 @@
 
 }
 body{
-    background: var(--color-bg3);
+    background: var(--color-white);
     font-family: 'Montserrat', sans-serif;
 font-family: 'Open Sans', sans-serif;
     line-height: 1.7;
@@ -25,6 +25,10 @@ font-family: 'Open Sans', sans-serif;
     --color-black1:#313131;
     --color-white:#ffffff;
     --color-light:#c6c6c6;
+    --color-foot:#000000;
+    --color-foot1:#323232;
+    --color-foot2:#E5E5CB;
+
 
     --container-width-lg:80%;
     --container-width-md:90%;

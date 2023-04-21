@@ -3,6 +3,8 @@ import noteContext from '../context/notes/noteContext';
 import styled from 'styled-components';
 import img from './img/back.jpg'
 import Underneath from './Underneath';
+import Opinion from './Opinion';
+import Available from './Available';
 
 function Home() {
   const context = useContext(noteContext);
@@ -15,12 +17,15 @@ function Home() {
             The Simplest Way To Keep Notes
           </h1>
         <p>
-        All your notes, synced on all your devices. Get Simplenote now for iOS, Android, Mac, Windows, Linux, or in your browser.
+        All your notes, synced on all your devices. Get iNoteBook now for iOS, Android, Mac, Windows, Linux, or in your browser.
         </p>
         <a className='btn btn-sign'>SignUp Now</a>
     </HomeDetail>
       </HomeContain>
       <Underneath/>
+      <Opinion/>
+      <Available/>
+
 
       {/* <div className='container my-3'>
         <h1>Add a Note</h1>
