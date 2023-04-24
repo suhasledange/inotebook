@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+
 import noteContext from '../context/notes/noteContext';
 import styled from 'styled-components';
 import img from './img/back.jpg'
@@ -95,12 +96,21 @@ const HomeDetail = styled.div`
 
   margin-left: 10rem;
   width: 40%;
+
+  @media screen and (max-width:900px){
+        width: 80%;
+        margin-left: 2rem;
+    }
   h1{
     font-size: 5rem;
     color: var(--color-bg3);
     font-weight: 600;
     letter-spacing: 2px;
     line-height: 1.1;
+
+    @media screen and (max-width:900px){
+        font-size: 4rem;
+    }
   }
   p{
     margin: 1rem 0rem;

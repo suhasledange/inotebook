@@ -42,6 +42,11 @@ font-family: 'Open Sans', sans-serif;
 .container{
     width:var(--container-width-lg);
     margin: 0 auto;
+
+    @media screen and (max-width:900px){
+    width:var(--container-width-sm);
+        
+    }
 }
 section{
     overflow: hidden;
@@ -60,6 +65,7 @@ h4{
 }
 a{
     color: var(--color-black);
+    text-align: center;
 }
 img{
     width: 100%;
@@ -97,6 +103,73 @@ nav .container{
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.hamburger{
+    display: none;
+}
+nav .container .contain:nth-child(2){
+    display: flex;
+}
+
+@media screen and (max-width:900px){
+    nav .container .contain.mob{
+        display: none;
+    }
+   
+     nav .container .contain.mob1{
+        display: block;
+        display: flex;
+        position: absolute;
+        right:0;
+        flex-direction: column;
+        bottom: 0;
+        top: 100%;
+        gap: 1.5rem;
+        padding: 3rem;
+        background: var(--color-bg1);
+        height: 100vh;
+        width: 50%;
+    } 
+    .hamburger{
+        position: relative;
+        margin-top: 0.2rem;
+        display: flex;
+        align-items: center;
+        margin-right: 2rem;
+        cursor: pointer;
+        height: 50%;
+    }
+    .hamburger span{
+        background: var(--color-bg3);
+        position: absolute;
+        width: 3rem;
+        height: 0.3rem;
+        transition: .5s;
+    }
+    .hamburger span:nth-child(1){
+        transform: translateY(-0.7rem);
+        width: 2.5rem;
+    }
+    .hamburger span:nth-child(2){
+        transform: translateY(0rem);
+        width: 2.5rem;
+    }
+    .hamburger span:nth-child(3){
+        width: 2.5rem;
+        transform: translateY(0.7rem);
+    }
+
+    .hamburger.ham span:nth-child(2){
+        transform: translateX(-2rem);
+        opacity: 0;
+    }
+    .hamburger.ham span:nth-child(3){
+        transform: rotateZ(-45deg);
+    }
+    .hamburger.ham span:nth-child(1){
+        transform: rotateZ(45deg);
+    }
 }
 nav .container .contain .navbarbtn{
         font-size: 1.4rem;

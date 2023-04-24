@@ -74,6 +74,11 @@ const Under = styled.div`
         text-align: center;
         margin-bottom: 5rem;
         color: var(--color-black1);
+
+        @media screen and (max-width:900px){
+                font-size: 2.5rem;
+                width: 90%;
+        }
     }
 `;
 const Under_Component = styled.div`
@@ -83,6 +88,11 @@ const Under_Component = styled.div`
         margin: 0rem 8rem;
         padding-bottom: 3rem;
         border-bottom: 1px solid var(--color-light);
+
+        @media screen and (max-width:900px){
+            grid-template-columns: 1fr;
+            width: var(--container-width-sm);
+        }
 `;
 const Under_block = styled.div`
 background: var(--color-white);

@@ -28,7 +28,7 @@ export default Opinion
 
 const Opion = styled.div`
 border-bottom: 1px solid var(--color-light);
-padding-bottom: 3rem;
+padding-bottom: 5rem;
 margin-bottom: 5rem;
 width: 70%;
     display: flex;
@@ -40,10 +40,25 @@ width: 70%;
         font-size: 3rem;
         margin-bottom: 3rem;
         color: var(--color-black1);
+
+        @media screen and (max-width:900px){
+                font-size: 2.5rem;
+        }
     }
     .contain{
         display: flex;
+
+        @media screen and (max-width:900px){
+            flex-direction: column;
+
+        }
         .saying{
+
+            @media screen and (max-width:900px){
+                width: 100%;
+                margin: 0;
+                padding-bottom: 1.5rem;
+            }
             padding: 0rem 1.5rem;
             border-left: 5px solid var(--color-bg1);
             margin: 0rem 2rem;

@@ -21,9 +21,14 @@ const Avail = styled.div`
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    margin-bottom: 5rem;
     h1{
         font-size: 3rem;
         color: var(--color-black1);
+
+        @media screen and (max-width:900px){
+            font-size: 2.5rem;
+        }
     }
     .IMGS{
         border-bottom: 5px solid var(--color-bg1);

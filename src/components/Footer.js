@@ -67,14 +67,34 @@ export default footer
 
 
 const Foot = styled.div`
-  /* padding: 2rem 0rem; */
-  height: 10rem;
+
+  @media screen and (max-width:900px){
+      flex-direction: column;
+  }
+
+  height: 100%;
+  padding: 3rem 0rem;
   display: flex;
   background: var(--color-foot);
+
   .container{
+   
+    @media screen and (max-width:900px){
+      flex-direction: column;
+      gap: 1.5rem;
+  }
+
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 1rem;
+    .contain{
+        display: flex;
+        flex-wrap: wrap;
+        @media screen and (max-width:900px){
+          gap: 0.2rem;
+    }
+      }
     .contain a{
       margin: 0 1rem;
       font-size: 1.1rem;
@@ -91,18 +111,27 @@ const Foot = styled.div`
 
 `;
 const Foot1 = styled.div`
-  height: 5rem;
+  height: 100%;
   display: flex;
+  flex-wrap: wrap;
+  padding: 1rem 0rem;
+ 
   background: var(--color-foot1);
   .container{
     width: 70%;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-
+    @media screen and (max-width:900px){
+          flex-direction: column;
+          gap: 1rem;
+      }
+      gap: 1rem;
     .foot1_contain{
-      
+    
       display: flex;
+      flex-wrap: wrap;
       align-items: center;
       justify-content: center;
       gap: 5px;

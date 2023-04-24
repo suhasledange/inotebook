@@ -11,8 +11,18 @@ function Navbar() {
     console.log(location.pathname);
   },[location]);
 
+  const hamClick = ()=>{
+    let ham = document.querySelector(".hamburger");
+    let mob = document.querySelector(".mob");
+    ham.addEventListener("click",()=>{
+      ham.classList.toggle("ham");
+      mob.classList.toggle("mob1");
+
+    })
+  }
+
   return (
-    <div>
+    <>
      {/* <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">iNoteBook</a>
@@ -37,19 +47,29 @@ function Navbar() {
 </nav> */}
   <nav>
   <div className='container'>
+
+
     <div className='contain'>
       <h1>iNoteBook</h1>
     </div>
-    <div className='contain'>
-      <a className='navbarbtn'>Home</a>
-      <a className='navbarbtn'>About</a>
+
+    <div className="contain mob">
+    <Link class={`navbarbtn ${location.pathname === "/" ? "active" : ""}`}aria-current="page" to="/">Home</Link>
+    <Link class={`navbarbtn ${location.pathname === "/about" ? "active" : ""}`}aria-current="page" to="/about">About</Link>
       <a className='navbarbtn'>Donate</a>
-      <a className='navbarbtn'>Contact</a>
-      <a className='btn navbtn'>Login</a>
-    </div>
+      <a className='navbarbtn'>Contact Us</a>
+    <a className="btn navbtn">Login</a>
+      </div>
+      <div class="hamburger" onClick={hamClick}>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+
   </div>
   </nav>
-    </div>
+    </>
   )
 }
 
