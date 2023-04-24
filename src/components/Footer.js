@@ -6,7 +6,7 @@ function footer() {
   return (
     <>
     <Foot>
-    <div className='container'>
+    <div className='Container'>
           <div className='contain'>
             <h1>iNoteBook</h1>
           </div>
@@ -17,9 +17,7 @@ function footer() {
                 <a>Developers</a>
                 <a>Terms & Conditions</a>
                 <a>Privacy</a>
-                <a>Press</a>
                 <a>Privacy Notice</a>
-
           </div>
           <div className='contain'>
                 <a>
@@ -29,7 +27,7 @@ function footer() {
     </div>
     </Foot>
     <Foot1>
-      <div className='container'>
+      <div className='Container'>
         <div className='foot1_contain'>
             <h1>&copy; 2023 iNoteBook</h1>
         </div>
@@ -77,13 +75,12 @@ const Foot = styled.div`
   display: flex;
   background: var(--color-foot);
 
-  .container{
+  .Container{
    
     @media screen and (max-width:900px){
       flex-direction: column;
       gap: 1.5rem;
   }
-
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -117,7 +114,7 @@ const Foot1 = styled.div`
   padding: 1rem 0rem;
  
   background: var(--color-foot1);
-  .container{
+  .Container{
     width: 70%;
     display: flex;
     flex-wrap: wrap;

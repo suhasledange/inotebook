@@ -6,12 +6,11 @@
     border: 0;
     list-style: none;
     text-decoration: none;
-
 }
 body{
     background: var(--color-white);
     font-family: 'Montserrat', sans-serif;
-font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     line-height: 1.7;
     position: relative;
 }
@@ -32,20 +31,21 @@ font-family: 'Open Sans', sans-serif;
 
     --container-width-lg:80%;
     --container-width-md:90%;
-    --container-width-sm:94%;
+    --container-width-sm:90%;
 
     --transition: all 300ms ease;
 }
 .window-scroll{
     box-shadow: 0 0 1rem 1rem rgba(0, 0, 0, 0.05);
 }
-.container{
+.Container{
     width:var(--container-width-lg);
     margin: 0 auto;
-
-    @media screen and (max-width:900px){
-    width:var(--container-width-sm);
-        
+   
+}
+@media screen and (max-width:900px){
+    .Container{
+        width:var(--container-width-sm);
     }
 }
 section{
@@ -99,25 +99,26 @@ nav{
     display: flex;
     z-index: 10;
 }
-nav .container{
+nav .Container{
     display: flex;
     align-items: center;
     justify-content: space-between;
+
 }
 
 .hamburger{
     display: none;
 }
-nav .container .contain:nth-child(2){
+nav .Container .contain:nth-child(2){
     display: flex;
 }
 
 @media screen and (max-width:900px){
-    nav .container .contain.mob{
+    nav .Container .contain.mob{
         display: none;
     }
    
-     nav .container .contain.mob1{
+     nav .Container .contain.mob1{
         display: block;
         display: flex;
         position: absolute;
@@ -171,7 +172,7 @@ nav .container .contain:nth-child(2){
         transform: rotateZ(45deg);
     }
 }
-nav .container .contain .navbarbtn{
+nav .Container .contain .navbarbtn{
         font-size: 1.4rem;
         color: var(--color-bg3);
         letter-spacing: 1.5px;
@@ -183,11 +184,11 @@ nav .container .contain .navbarbtn{
         transition: var(--transition);
         font-weight: 600;
 }
-nav .container .contain .navbarbtn:hover{
+nav .Container .contain .navbarbtn:hover{
     color: var(--color-bg2);
 }
 
-nav .container .contain .navbarbtn:after{
+nav .Container .contain .navbarbtn:after{
     position: absolute;
     content: '';
     background: var(--color-bg);
@@ -199,7 +200,7 @@ nav .container .contain .navbarbtn:after{
     transition: var(--transition);
 }
 
-nav .container .contain .navbarbtn:hover:after{
+nav .Container .contain .navbarbtn:hover:after{
     transform: scale(1);
 }
 .contain h1{

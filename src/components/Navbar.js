@@ -46,16 +46,14 @@ function Navbar() {
   </div>
 </nav> */}
   <nav>
-  <div className='container'>
-
-
+  <div className='Container'>
     <div className='contain'>
       <h1>iNoteBook</h1>
     </div>
 
     <div className="contain mob">
     <Link class={`navbarbtn ${location.pathname === "/" ? "active" : ""}`}aria-current="page" to="/">Home</Link>
-    <Link class={`navbarbtn ${location.pathname === "/about" ? "active" : ""}`}aria-current="page" to="/about">About</Link>
+    <Link class={`navbarbtn ${location.pathname === "/about" ? "active" : ""}`}aria-current="page" to="/about">Notes</Link>
       <a className='navbarbtn'>Donate</a>
       <a className='navbarbtn'>Contact Us</a>
     <a className="btn navbtn">Login</a>
@@ -65,8 +63,6 @@ function Navbar() {
             <span></span>
             <span></span>
         </div>
-
-
   </div>
   </nav>
     </>

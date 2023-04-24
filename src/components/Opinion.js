@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import imgs from './img/back.jpg'
 function Opinion() {
   return (
-    <Opion className='container'>
+    <Opion className='Container'>
         <h1>What people are saying</h1>
         <div className='contain'>
                 <div className='saying'>
@@ -38,7 +38,7 @@ width: 70%;
     background: var(--color-white);
     h1{
         font-size: 3rem;
-        margin-bottom: 3rem;
+        margin-bottom: 5rem;
         color: var(--color-black1);
 
         @media screen and (max-width:900px){

@@ -48,9 +48,7 @@ function Home() {
         </form>
         <h1>Your Note</h1>
         
-        {notes.map((note)=>{
-          return note.title;
-        })}
+        
       </div> */}
     </>
   )
@@ -59,9 +57,8 @@ function Home() {
 export default Home
 
 const HomeContain = styled.main`
-
     min-height: 100vh;
-    padding: 0 calc(2vw);
+    padding: 0 calc(2vw); 
     position: relative;
     overflow-x: hidden;
     display: flex;
@@ -98,9 +95,10 @@ const HomeDetail = styled.div`
   width: 40%;
 
   @media screen and (max-width:900px){
-        width: 80%;
-        margin-left: 2rem;
+      width: 80%;
+      margin-left: 2rem;
     }
+
   h1{
     font-size: 5rem;
     color: var(--color-bg3);
