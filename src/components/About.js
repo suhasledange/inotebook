@@ -1,41 +1,38 @@
-import { useContext, useEffect } from 'react'
-import noteContext from '../context/notes/noteContext';
 import styled from 'styled-components';
-import NoteItem from './NoteItem';
+import NotesBlock from './NotesBlock';
+import IMG from "./img/secure.png"
 function About() {
-  const context = useContext(noteContext);
-  const {notes,setNotes} = context;
+
   return (
     <NoteBlock>
-
-<div className='Container my-3'>
-        <h1>Add a Note</h1>
-        <form className="my-3">
-          <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
-            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-          </div>
-          <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" />
-          </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
+    <div className='Container'>
+    <div className='NoteBlock_contain'>
+      <h1>Add Notes</h1>
+      <div className='AddNote'>
+        <form>
+            <div className='form_input'>
+              <p>Enter Title : </p>
+              <input type="text" placeholder='Enter Title' required/>
+            </div>
+            <div className='form_input'>
+              <p>Enter Description : </p>
+              <textarea placeholder='Enter Description'></textarea>
+            </div>
+            <div className='form_input'>
+            <input type="submit" className='form_btn' placeholder='Enter Title'/>
+            </div>
         </form>
-        
-        
-        
-      <h1>Your Note</h1>
-
-      <div className='Container'>
-      {notes.map((note)=>{
-        return <NoteItem note={note}/>
-      })}
-
       </div>
 
-      </div> 
+    </div>
+        <div className='NoteBlock_contain'>
+          <div className='img_contain'>
+                <img src={IMG}/>
+          </div>
+        </div>
 
+      </div> 
+      <NotesBlock/>
     </NoteBlock>
   )
 }
@@ -44,6 +41,87 @@ export default About
 
 
 const NoteBlock = styled.div`
-  padding-top: 10rem;
-  height: 100vh;
+  padding-top: 10rem;  
+  .Container{
+
+    @media screen and (max-width:900px){
+      flex-direction: column;
+      .img_contain{
+      width: 30rem;
+    }
+    }
+
+    display: flex;
+    gap: 5rem;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--color-light);
+  }
+  .NoteBlock_contain{
+    width: 100%;
+    .img_contain{
+      width: 40rem;
+      @media screen and (max-width:900px){
+            width: 30rem;
+            margin-bottom: 2rem;
+      }
+    }
+    }
+
+    h1{
+      font-size: 2rem;
+    }
+    .AddNote{
+      padding: 2rem 0rem;
+      form{
+        .form_input{
+          .form_btn{
+            border: 1px solid var(--color-bg1);
+            background: var(--color-bg1);
+            color: var(--color-bg3);
+            font-weight: 600;
+            transition: var(--transition);
+            &:hover{
+                background-color:var(--color-bg);
+            }
+          }
+
+          margin-bottom: 2rem;
+          p{
+            font-size: 1.5rem;
+          }
+          input{
+            border-bottom: 2px solid var(--color-black1);
+            padding: 0.5rem 0rem;
+            font-size: 1.3rem;
+            width: 80%;
+            @media screen and (max-width:900px){
+            width: 100%;
+            }
+            &:focus{
+              border-bottom: 2px solid var(--color-bg);
+            }
+          }
+          textarea{
+              border: 1px solid var(--color-black1);
+              width: 80%;
+              @media screen and (max-width:900px){
+            width: 100%;
+            }
+              height: 10rem;
+              font-size: 1.3rem;
+              resize: none;
+              padding: 0.5rem;
+              border-radius: 10px;
+              &:focus{
+              border-color:var(--color-bg);
+            } 
+
+            }
+        }
+      }
+    }
+
+  }
+ 
 `;  

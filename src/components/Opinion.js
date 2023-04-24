@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import imgs from './img/back.jpg'
 function Opinion() {
   return (
     <Opion className='Container'>
@@ -40,20 +39,16 @@ width: 70%;
         font-size: 3rem;
         margin-bottom: 5rem;
         color: var(--color-black1);
-
         @media screen and (max-width:900px){
                 font-size: 2.5rem;
         }
     }
     .contain{
         display: flex;
-
         @media screen and (max-width:900px){
             flex-direction: column;
-
         }
         .saying{
-
             @media screen and (max-width:900px){
                 width: 100%;
                 margin: 0;
