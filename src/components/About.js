@@ -13,7 +13,7 @@ function About() {
         <form>
             <div className='form_input'>
               <p>Enter Tag : </p>
-              <input type="text" placeholder='Enter Tag (Optional)' required/>
+              <input type="text" placeholder='Enter Tag (Optional)' maxlength="10"/>
             </div>
             <div className='form_input'>
               <p>Enter Title : </p>

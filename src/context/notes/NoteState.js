@@ -17,7 +17,7 @@ const NoteState = (props)=>{
           "_id": "6410b1696295018a62ebcc7f",
           "user": "640da59721220d7eb62cdd8a",
           "title": "added",
-          "tag": "personal",
+          "tag": "personalsd",
           "description": "please wake up early 1",
           "date": "2023-03-14T17:39:53.239Z",
           "__v": 0
