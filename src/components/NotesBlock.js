@@ -29,8 +29,13 @@ const NotesBl = styled.div`
         margin-top: 4rem;
         flex-direction: column;
         align-items: flex-start;
-      
-    .Main_Notes{
+        padding-bottom: 5rem;
+
+        h1{
+          font-size: 2rem;
+          margin-bottom: 4rem;
+        }
+      .Main_Notes{
       display: flex;
       flex-wrap: wrap;
     }  

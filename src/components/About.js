@@ -4,12 +4,17 @@ import IMG from "./img/secure.png"
 function About() {
 
   return (
+    <>
     <NoteBlock>
     <div className='Container'>
     <div className='NoteBlock_contain'>
       <h1>Add Notes</h1>
       <div className='AddNote'>
         <form>
+            <div className='form_input'>
+              <p>Enter Tag : </p>
+              <input type="text" placeholder='Enter Tag (Optional)' required/>
+            </div>
             <div className='form_input'>
               <p>Enter Title : </p>
               <input type="text" placeholder='Enter Title' required/>
@@ -28,12 +33,15 @@ function About() {
         <div className='NoteBlock_contain'>
           <div className='img_contain'>
                 <img src={IMG}/>
+                <h2>iNoteBook</h2>
           </div>
         </div>
 
       </div> 
-      <NotesBlock/>
     </NoteBlock>
+      <NotesBlock/>
+    </>
+
   )
 }
 
@@ -41,9 +49,9 @@ export default About
 
 
 const NoteBlock = styled.div`
-  padding-top: 10rem;  
+  padding-top: 10rem;
+  margin-bottom:5rem;
   .Container{
-
     @media screen and (max-width:900px){
       flex-direction: column;
       .img_contain{
@@ -61,6 +69,13 @@ const NoteBlock = styled.div`
     width: 100%;
     .img_contain{
       width: 40rem;
+      text-align: center;
+      h2{
+        margin-top: 3rem;
+        color: var(--color-bg1);
+        font-weight: bolder;
+        text-decoration: underline;
+      }
       @media screen and (max-width:900px){
             width: 30rem;
             margin-bottom: 2rem;
@@ -121,7 +136,5 @@ const NoteBlock = styled.div`
         }
       }
     }
-
-  }
  
 `;  
