@@ -33,7 +33,7 @@ function footer() {
         </div>
         <div className='foot1_contain'>
         <div className='LANG'>
-            <i class="uil uil-globe"></i> <a> English</a>
+            <i className="uil uil-globe"></i> <a> English</a>
         </div>
         </div>
         <div className='foot1_contain'>
@@ -41,11 +41,11 @@ function footer() {
                 <a>Terms</a><span>&</span><a>Privacy</a>
         </div>
         <div className='foot1_contain'>
-        <a className='lin'><i class="uil uil-twitter"></i></a>
-       <a className='lin'><i class="uil uil-linkedin-alt"></i></a> 
-        <a className='lin'><i class="uil uil-instagram"></i></a>
-        <a className='lin'><i class="uil uil-facebook-f"></i></a>
-        <a className='lin'><i class="uil uil-youtube"></i></a>
+        <a className='lin'><i className="uil uil-twitter"></i></a>
+       <a className='lin'><i className="uil uil-linkedin-alt"></i></a> 
+        <a className='lin'><i className="uil uil-instagram"></i></a>
+        <a className='lin'><i className="uil uil-facebook-f"></i></a>
+        <a className='lin'><i className="uil uil-youtube"></i></a>
         </div>
         <div className='foot1_contain'>
           <div className='IMG'>

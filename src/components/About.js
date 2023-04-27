@@ -1,45 +1,64 @@
 import styled from 'styled-components';
 import NotesBlock from './NotesBlock';
 import IMG from "./img/secure.png"
+import { useContext, useState } from 'react'
+import noteContext from '../context/notes/noteContext';
 function About() {
+  const context = useContext(noteContext);
+  const {addNote} = context;
+  const [note,setNote] = useState({title:"",description:"",tag:"Personal"})
+  
+  const submitNote = (e)=>{
+      e.preventDefault();
+        if(note.title==="" || note.description===""){
+          alert("Enter Required Fields");
+        }
+        else
+        addNote(note.title,note.description,note.tag);
+  }
 
+  const onChange = (e)=>{
+    setNote({...note,[e.target.name]:e.target.value})
+  }
+  
   return (
     <>
-    <NoteBlock>
-    <div className='Container'>
-    <div className='NoteBlock_contain'>
-      <h1>Add Notes</h1>
-      <div className='AddNote'>
-        <form>
-            <div className='form_input'>
-              <p>Enter Tag : </p>
-              <input type="text" placeholder='Enter Tag (Optional)' maxlength="10"/>
+      <NoteBlock>
+        <div className='Container'>
+          <div className='NoteBlock_contain'>
+            <h1>Add Notes</h1>
+            <div className='AddNote'>
+              <form>
+                <div className='form_input'>
+                  <p>Enter Tag : </p>
+                  <input type="text" id="tag" name="tag" placeholder='Enter Tag (Optional)' maxLength="10" onChange={onChange}/>
+                </div>
+                <div className='form_input'>
+                  <p>Enter Title : </p>
+                  <input type="text" id="title" name="title" placeholder='Enter Title' onChange={onChange} required />
+                </div>
+                <div className='form_input'>
+                  <p>Enter Description : </p>
+                  <textarea id="description" name="description" placeholder='Enter Description' onChange={onChange}></textarea>
+                </div>
+                <div className='form_input'>
+                  <input onClick={submitNote} type="submit" className='form_btn' value="Add Note"/>
+                </div>
+              </form>
             </div>
-            <div className='form_input'>
-              <p>Enter Title : </p>
-              <input type="text" placeholder='Enter Title' required/>
-            </div>
-            <div className='form_input'>
-              <p>Enter Description : </p>
-              <textarea placeholder='Enter Description'></textarea>
-            </div>
-            <div className='form_input'>
-            <input type="submit" className='form_btn' placeholder='Enter Title'/>
-            </div>
-        </form>
-      </div>
 
-    </div>
-        <div className='NoteBlock_contain'>
-          <div className='img_contain'>
-                <img src={IMG}/>
-                <h2>iNoteBook</h2>
           </div>
-        </div>
+          <div className='NoteBlock_contain'>
+            <div className='img_contain'>
+              <img src={IMG} />
+              <h2>iNoteBook</h2>
+            </div>
+          </div>
 
-      </div> 
-    </NoteBlock>
-      <NotesBlock/>
+        </div>
+      </NoteBlock>
+
+      <NotesBlock />
     </>
 
   )

@@ -11,42 +11,42 @@ function Underneath() {
             <Under_Component>
                 <Under_block>
                         <div className='block-icn'>
-                        <i class="uil uil-cloud-redo"></i>
+                        <i className="uil uil-cloud-redo"></i>
                             <h2>Use it everywhere</h2>
                         </div>
                         <p>Notes stay updated across all your devices, automatically and in real time. There’s no “sync” button: It just works.</p>
                 </Under_block>
                 <Under_block>
                         <div className='block-icn'>
-                        <i class="uil uil-bookmark"></i>
+                        <i className="uil uil-bookmark"></i>
                             <h2>Stay organized</h2>
                         </div>
                         <p>Add tags to find notes quickly with instant searching.</p>
                 </Under_block>
                 <Under_block>
                         <div className='block-icn'>
-                        <i class="uil uil-users-alt"></i>
+                        <i className="uil uil-users-alt"></i>
                             <h2>Work together</h2>
                         </div>
                         <p>Share a to-do list, post some instructions, or publish your notes online.</p>
                 </Under_block>
                 <Under_block>
                         <div className='block-icn'>
-                        <i class="uil uil-clock-five"></i>
+                        <i className="uil uil-clock-five"></i>
                             <h2>Go back in time</h2>
                         </div>
                         <p>Notes are backed up with every change, so you can see what you noted last week or last month.</p>
                 </Under_block>
                 <Under_block>
                         <div className='block-icn'>
-                        <i class="uil uil-notebooks"></i>
+                        <i className="uil uil-notebooks"></i>
                             <h2>Markdown support</h2>
                         </div>
                         <p>Write, preview, and publish your notes in Markdown format.</p>
                 </Under_block>
                 <Under_block>
                         <div className='block-icn'>
-                        <i class="uil uil-exclamation-circle"></i>
+                        <i className="uil uil-exclamation-circle"></i>
                             <h2>It’s free</h2>
                         </div>
                         <p>Apps, backups, syncing, sharing – it’s all completely free.</p>

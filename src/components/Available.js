@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import imgs from './img/features_apps.svg'
 function Available() {
   return (
-    <Avail className='container'>
+    <Avail className='Container'>
         <h1>Available everywhere you need it</h1>
         <div className='IMGS'>
        <a ><img src={imgs}/> </a>

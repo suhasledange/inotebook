@@ -1,8 +1,11 @@
 import React from 'react'
 import styled from 'styled-components';
-
+import noteContext from '../context/notes/noteContext';
+import { useContext } from 'react'
 function NoteItem(props) {
-    const {note} = props;
+  const context = useContext(noteContext);
+    const {note,updateNote} = props;
+    const {deleteNote} = context;
     const date = note.date.split("T");
   return (
     <NoteItm>
@@ -16,7 +19,7 @@ function NoteItem(props) {
           </div>
           <div className='Card_info'>
             <h2>Description : </h2>
-            <p>{note.description}sjdfasdfalsdjflksjdflkajsdkfjlasjdlfjasjdfjsldjfjsdfjljsdlfjlsjdfljsldjflsjdlfkjsldjflsjldfjlkajsldfjlsjdlfjsadfjlkasdjfjalskdjfjasdf</p>
+            <p>{note.description}</p>
           </div>
           <div className='Card_info'>
             <h2>Date : </h2>
@@ -26,12 +29,10 @@ function NoteItem(props) {
           </div>
 
           <div className='edit'>
-          <a>
-              <i class="uil uil-trash-alt"></i>
-          </a>
-          <a>
-              <i class="uil uil-pen"></i>
-          </a>
+              <i onClick={()=>deleteNote(note._id)} className="uil uil-trash-alt" ></i>
+            
+              <i onClick={()=>updateNote(note)} className="uil uil-pen"></i>
+          
         </div>
 
         </div>
@@ -75,7 +76,10 @@ const NoteItm = styled.div`
   background: var(--color-bg3);
   position: relative;
   border-left: 5px solid var(--color-bg1);
+  &:hover{
+  box-shadow: 0 0 10px 8px rgba(0,0,0,0.2);
 
+  }
  /* overflow: scroll; */
  .Card{
     .tag{
