@@ -19,6 +19,7 @@ function About() {
           }
         addNote(note.title,note.description,note.tag);
           setNote({title:"",description:"",tag:""});
+          alert("Note Added Successfuly");
       }
       }
 
