@@ -69,7 +69,7 @@ const onChange = (e)=>{
       </div>
       <div className="modal-footer">
         <button ref={refClose} type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button onClick={submitNote} type="button" className="btn btn-primary">Update Note</button>
+        <button disabled={note.utitle.length<3 || note.udescription.length<5}  onClick={submitNote} type="button" className="btn btn-primary">Update Note</button>
       </div>
     </div>
   </div>
@@ -80,6 +80,9 @@ const onChange = (e)=>{
       <div className='Container'>
         <h1>Your Notes</h1>
         <div className='Main_Notes'>
+          <div className='empty'>
+              {notes.length === 0 && "No Notes to display"}
+          </div>
           {notes.map((note) => {
             return <NoteItem key={note._id} updateNote={updateNote} note={note} />
           })}
@@ -142,6 +145,7 @@ const NotesBl = styled.div`
   }
 
   .Container{
+
         margin-top: 4rem;
         flex-direction: column;
         align-items: flex-start;
@@ -154,6 +158,12 @@ const NotesBl = styled.div`
       .Main_Notes{
       display: flex;
       flex-wrap: wrap;
+      .empty{
+        margin-left: 10px;
+        font-size: 1.1rem;
+        font-style: italic;
+        color: var(--color-bg1);
+      }
     }  
     }
 

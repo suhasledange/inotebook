@@ -6,16 +6,21 @@ import noteContext from '../context/notes/noteContext';
 function About() {
   const context = useContext(noteContext);
   const {addNote} = context;
-  const [note,setNote] = useState({title:"",description:"",tag:"Personal"})
+  const [note,setNote] = useState({title:"",description:"",tag:""})
   
   const submitNote = (e)=>{
       e.preventDefault();
         if(note.title==="" || note.description===""){
           alert("Enter Required Fields");
         }
-        else
+        else{
+          if(note.tag===""){
+            note.tag="Personal";
+          }
         addNote(note.title,note.description,note.tag);
-  }
+          setNote({title:"",description:"",tag:""});
+      }
+      }
 
   const onChange = (e)=>{
     setNote({...note,[e.target.name]:e.target.value})
@@ -31,18 +36,18 @@ function About() {
               <form>
                 <div className='form_input'>
                   <p>Enter Tag : </p>
-                  <input type="text" id="tag" name="tag" placeholder='Enter Tag (Optional)' maxLength="10" onChange={onChange}/>
+                  <input value={note.tag} type="text" id="tag" name="tag" placeholder='Enter Tag (Optional)' maxLength="10" onChange={onChange}/>
                 </div>
                 <div className='form_input'>
                   <p>Enter Title : </p>
-                  <input type="text" id="title" name="title" placeholder='Enter Title' onChange={onChange} required />
+                  <input value={note.title} minLength={3} type="text" id="title" name="title" placeholder='Enter Title' onChange={onChange} required />
                 </div>
                 <div className='form_input'>
                   <p>Enter Description : </p>
-                  <textarea id="description" name="description" placeholder='Enter Description' onChange={onChange}></textarea>
+                  <textarea value={note.description} minLength={5} id="description" name="description" placeholder='Enter Description' required onChange={onChange}></textarea>
                 </div>
                 <div className='form_input'>
-                  <input onClick={submitNote} type="submit" className='form_btn' value="Add Note"/>
+                  <input disabled={note.title.length<3 || note.description.length<5} onClick={submitNote} type="submit" className='form_btn' value="Add Note"/>
                 </div>
               </form>
             </div>
