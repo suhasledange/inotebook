@@ -6,11 +6,15 @@ import styled from 'styled-components';
 
 function NotesBlock() {
   const context = useContext(noteContext);
-  const { notes, getNotes } = context;
-  const [note,setNote] = useState({title:"",description:"",tag:"Personal"})
+  const { notes, getNotes ,editNote} = context;
+  const [note,setNote] = useState({utitle:"",udescription:"",utag:""})
   const ref = useRef(null);
-  const updateNote = (note) => {
+  const refClose = useRef(null);
+
+  const updateNote = (currentNote) => {
     ref.current.click();
+    setNote({id:currentNote._id, utitle: currentNote.title,udescription:currentNote.description,utag:currentNote.tag})
+
   }
 
   useEffect(() => {
@@ -20,9 +24,13 @@ function NotesBlock() {
 
   const submitNote = (e)=>{
     e.preventDefault();
-      if(note.title==="" || note.description===""){
+      if(note.utitle==="" || note.udescription===""){
         alert("Enter Required Fields");
       }
+       else
+          editNote(note.id,note.utitle,note.udescription,note.utag);
+
+      refClose.current.click();
 }
 
 const onChange = (e)=>{
@@ -32,36 +40,36 @@ const onChange = (e)=>{
   return (
     <NotesBl>
 
-<button style={{display:"none"}} ref={ref} type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+<button style={{display:"none"}} ref={ref} type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
   Launch demo modal
 </button>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Update Note</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+<div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div className="modal-dialog">
+    <div className="modal-content">
+      <div className="modal-header">
+        <h1 className="modal-title fs-5" id="exampleModalLabel">Update Note</h1>
+        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
+      <div className="modal-body">
       <form>
                 <div className='form_input'>
                   <p>Enter Tag : </p>
-                  <input type="text" id="utag" name="utag" placeholder='Enter Tag (Optional)' maxLength="10" onChange={onChange}/>
+                  <input value={note.utag} type="text" id="utag" name="utag" placeholder='Enter Tag (Optional)' maxLength="10" onChange={onChange}/>
                 </div>
                 <div className='form_input'>
                   <p>Enter Title : </p>
-                  <input type="text" id="utitle" name="utitle" placeholder='Enter Title' onChange={onChange} required />
+                  <input value={note.utitle} type="text" id="utitle" name="utitle" placeholder='Enter Title' onChange={onChange} required />
                 </div>
                 <div className='form_input'>
                   <p>Enter Description : </p>
-                  <textarea id="udescription" name="udescription" placeholder='Enter Description' onChange={onChange}></textarea>
+                  <textarea value={note.udescription} id="udescription" name="udescription" placeholder='Enter Description' onChange={onChange}></textarea>
                 </div>
               </form>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Update Note</button>
+      <div className="modal-footer">
+        <button ref={refClose} type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button onClick={submitNote} type="button" className="btn btn-primary">Update Note</button>
       </div>
     </div>
   </div>
