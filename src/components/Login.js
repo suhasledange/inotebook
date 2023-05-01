@@ -47,13 +47,13 @@ function Login() {
                     
                     <div className='bord'>
                         <div className='bd'> </div>
-                        <span>or</span>
+                        <span>OR</span>
                         <div className='bd'></div>
                     </div>
 
                     <div className='register'>
                     <p>Don't have an account ?</p>
-                    <Link className='lk'>Sign Up</Link>
+                    <Link className='lk' to="/signup">Sign Up</Link>
                     </div>
                 </form>
         </div>  
@@ -82,11 +82,19 @@ const LoginC = styled.div`
         form{
             p{
                 font-size: 1.1rem;
+                margin: 5px 0;
+
             }
                 .lk{
                     color: var(--color-bg1);
                     text-underline-offset: 4px;
                     font-size: 1.1rem;
+                    text-decoration: none;
+                    &:hover{
+                        text-decoration: underline;
+                        color: var(--color-bg);
+
+                    }
             }
             .Login{
                 &:hover{
@@ -101,19 +109,23 @@ const LoginC = styled.div`
                 }
             }
             .bord{
+                margin:1rem 0rem;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-
+                width: 90%;
+                gap: 1rem;
                 .bd{
-                    background: red;
+                    background: var(--color-bg1);
                     width: 100%;
-                    height: 1rem;
+                    height: 1px;
                 }
             }
             .register{
                 display: flex;
                 gap: 0.5rem;
+                align-items: center;
+                justify-content: center;
             }
             width: 26rem;
             input{

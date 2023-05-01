@@ -16,7 +16,7 @@ Router.post("/createuser", [
     body('password', "Password must be atleast 8 characters").isLength({ min: 8 }),
 
 ], async (req, res) => {
-
+    let success = false;
     //if there are errors return bad request
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -28,7 +28,7 @@ Router.post("/createuser", [
 
         let user = await User.findOne({ email: req.body.email });
         if (user) {
-            return res.status(400).json({ error: "sorry a user already exists" })
+            return res.status(400).json({success, error: "sorry a user already exists" })
         }
 
         //bcryptjs
@@ -54,8 +54,9 @@ Router.post("/createuser", [
                 id:user.id
             }
         }
+        success = true;
         const authToken = jwt.sign(data,JWT_SECRET);
-        res.json({authToken});
+        res.json({success,authToken});
 
         // res.json(user)
     } catch (error) {
