@@ -73,7 +73,7 @@ Router.post("/createuser", [
     body('password', "Password cannot be blank").exists()
 ], async (req, res) => {
    
-
+    let success = false;
     //if there are errors return bad request
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -87,12 +87,12 @@ Router.post("/createuser", [
         let user = await User.findOne({email});
 
         if(!user){
-            return res.status(400).json({error:"Invalid Credentials"})
+            return res.status(400).json({success,error:"Invalid Credentials"})
         }
         const passwordCompare = await bcrypt.compare(password,user.password);
 
         if(!passwordCompare){
-            return res.status(400).json({error:"Invalid Credentials"})
+            return res.status(400).json({success,error:"Invalid Credentials"})
         }
 
         const data = {
@@ -101,7 +101,8 @@ Router.post("/createuser", [
             }
         }
         const authToken = jwt.sign(data,JWT_SECRET);
-        res.json({authToken});
+        success = true;
+        res.json({success,authToken});
 
     } catch (error) {
         console.error(error.message);

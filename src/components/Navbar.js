@@ -50,7 +50,8 @@ function Navbar(props) {
     <Link className={`navbarbtn ${location.pathname === "/about" ? "active" : ""}`}aria-current="page" to="/about">Notes</Link>
       <a className='navbarbtn'>Donate</a>
       <a className='navbarbtn'>Contact Us</a>
-    <a className="btn navbtn">Login</a>
+    {/* <a className="btn navbtn">Login</a> */}
+    <Link className='btn navbtn' to="/login" role='button'>Login</Link>
       </div>
       <div className="hamburger" onClick={hamClick}>
             <span></span>

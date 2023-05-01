@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-
+import { Link ,useLocation} from "react-router-dom";
 import noteContext from '../context/notes/noteContext';
 import styled from 'styled-components';
 import img from './img/back.jpg'
@@ -20,7 +20,9 @@ function Home() {
         <p>
         All your notes, synced on all your devices. Get iNoteBook now for iOS, Android, Mac, Windows, Linux, or in your browser.
         </p>
-        <a className='btn btn-sign'>SignUp Now</a>
+        {/* <a className='btn btn-sign'>SignUp Now</a> */}
+      <Link className='btn btn-sign' to="/signup" role='button'>SignUp Now</Link>
+
     </HomeDetail>
       </HomeContain>
       <Underneath/>
