@@ -23,7 +23,7 @@ function Signup() {
             localStorage.setItem('token',json.authToken);
             navigate("/login");
         }
-        else
+        else{
             alert("User Already Exists");
         }
     }
