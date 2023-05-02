@@ -18,6 +18,7 @@ function NotesBlock() {
   }
 
   useEffect(() => {
+    
     getNotes()
   }, [])
 
@@ -157,6 +158,9 @@ const NotesBl = styled.div`
         }
       .Main_Notes{
       display: flex;
+      @media screen and (max-width:900px){
+        justify-content: center;
+      }
       flex-wrap: wrap;
       .empty{
         margin-left: 10px;

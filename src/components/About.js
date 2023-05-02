@@ -1,14 +1,16 @@
 import styled from 'styled-components';
 import NotesBlock from './NotesBlock';
 import IMG from "./img/secure.png"
-import { useContext, useState } from 'react'
+import { useContext, useState ,useEffect} from 'react'
 import noteContext from '../context/notes/noteContext';
-function About() {
+import { useNavigate } from 'react-router-dom';
+function About(props) {
   const context = useContext(noteContext);
   const {addNote} = context;
   const [note,setNote] = useState({title:"",description:"",tag:""})
   
   const submitNote = (e)=>{
+
       e.preventDefault();
         if(note.title==="" || note.description===""){
           alert("Enter Required Fields");
@@ -19,13 +21,22 @@ function About() {
           }
         addNote(note.title,note.description,note.tag);
           setNote({title:"",description:"",tag:""});
-          alert("Note Added Successfuly");
+          props.showAlert("Note Added Successfully")
+          alert("Note Added Successfully");
+
       }
       }
 
   const onChange = (e)=>{
     setNote({...note,[e.target.name]:e.target.value})
   }
+
+  let navigate = useNavigate();
+  useEffect(()=>{
+    if(!localStorage.getItem('token')){
+      navigate('/login');
+    }
+  },[])
   
   return (
     <>

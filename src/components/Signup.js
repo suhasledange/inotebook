@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components'
 
-function Signup() {
+function Signup(props) {
     const [Credentials,setCredentials] = useState({name:"",email:"",password:"",cpassword:""});
     let navigate = useNavigate();
 
@@ -22,9 +22,10 @@ function Signup() {
             //save the auth token and redirect
             localStorage.setItem('token',json.authToken);
             navigate("/login");
+            props.showAlert("Account Created Successfully")
         }
         else{
-            alert("User Already Exists");
+            alert("Invalid Credentials");
         }
     }
 

@@ -5,7 +5,7 @@ function Alert(props) {
     return (
         <Alrt>
             <div class="alert alert-danger" role="alert">
-                <h1>{props.message}</h1>                    
+                <h1>{props.Alert.msg}</h1>                    
             </div>
         </Alrt>
     )
