@@ -21,7 +21,10 @@ function Home() {
         All your notes, synced on all your devices. Get iNoteBook now for iOS, Android, Mac, Windows, Linux, or in your browser.
         </p>
         {/* <a className='btn btn-sign'>SignUp Now</a> */}
-      <Link className='btn btn-sign' to="/signup" role='button'>SignUp Now</Link>
+        {!localStorage.getItem('token') ?
+          <Link className='btn btn-sign' to="/signup" role='button'>SignUp Now</Link> :
+          <Link className='btn btn-sign' to="/about" role='button'>iNoteBook</Link>
+        }
 
     </HomeDetail>
       </HomeContain>

@@ -1,9 +1,20 @@
 import React ,{useEffect,useRef}from 'react'
 import { Link ,useLocation, useNavigate} from "react-router-dom";
+import { useContext, useState} from 'react'
 import '../App.css'
 import styled from 'styled-components';
 import img from './img/profile.png'
+import noteContext from '../context/notes/noteContext';
 function Navbar(props) {
+
+  const context = useContext(noteContext);
+  const {user,getUsers} = context;
+
+  useEffect(()=>{
+    if(localStorage.getItem('token')){
+      getUsers()
+    }
+  },[])
 
   let location = useLocation();
   useEffect(()=>{
@@ -11,14 +22,13 @@ function Navbar(props) {
   },[location]);
 
   const ref = useRef(null);
-
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (ref.current && !ref.current.contains(event.target)) {
-        // console.log("clicked outside")
       let ham = document.querySelector(".hamburger");
       let mob = document.querySelector(".mob");
-      let user = document.querySelector(".Contain");
+      let user = document.querySelector(".Contain_User");
+      if(user!=null)
       user.classList.remove("show");
       ham.classList.remove("ham");
       mob.classList.remove("mob1");
@@ -31,7 +41,7 @@ function Navbar(props) {
   }, [ ref ]);
   
   const userphoto = ()=>{
-      let user = document.querySelector(".Contain");
+      let user = document.querySelector(".Contain_User");
       user.classList.toggle("show");
   }
 
@@ -70,9 +80,9 @@ function Navbar(props) {
               <img src={img} />
       </User>
       <UserDetail>
-          <div className='Contain'>
-            <h1>Name Surname</h1>
-            <p>Email</p>
+          <div className='Contain_User'>
+            <h1>{user.name}</h1>
+            <p>{user.email}</p>
             <Link className='manage'>Manage Your Account</Link>
             <Link onClick={handleLogout} className='btn navbtn' to="/login" role='button'>Logout</Link>
           </div>
@@ -105,7 +115,7 @@ const User = styled.div`
 `;
 const UserDetail = styled.div`
   
-  .Contain{
+  .Contain_User{
     transition: var(--transition);
     transform: translateX(500%);
     width: auto;
@@ -130,18 +140,18 @@ const UserDetail = styled.div`
     }
     .manage{
       text-decoration: none;
-      width: 147%;
-      border-top: 1px solid var(--color-light);
-      border-bottom: 1px solid var(--color-light);
-      padding: 0.8rem 0rem;
+      width: 90%;
+      border-bottom: 3px solid var(--color-light);
+      
+      border-radius: 10px;
+      padding: 0.5rem 0rem;
       color: var(--color-bg3);
-      margin-bottom: 2rem;
+      margin-bottom: 2.5rem;
       margin-top: 0.5rem;
       transition: var(--transition);
       font-size: 1.1rem;
       &:hover{
-        background: var(--color-bg);
-        border-color:var(--color-bg) ;
+        border-color:var(--color-bg);
       }
     }
     .navbtn{

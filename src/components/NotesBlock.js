@@ -76,8 +76,6 @@ const onChange = (e)=>{
   </div>
 </div>
 
-
-
       <div className='Container'>
         <h1>Your Notes</h1>
         <div className='Main_Notes'>

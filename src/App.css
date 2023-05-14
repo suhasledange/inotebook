@@ -212,6 +212,10 @@ nav .Container .contain .navbarbtn:after{
 nav .Container .contain .navbarbtn:hover:after{
     transform: scale(1);
 }
+nav .Container .contain .navbarbtn.active::after{
+    transform: scale(1);
+    
+}
 .contain h1{
     font-size: 1.8rem;
     font-weight: bolder;

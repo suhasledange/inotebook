@@ -4,8 +4,25 @@ import NoteContext from "./noteContext";
 const NoteState = (props) => {
   let host = "http://localhost:5000";
   const notesInitial = []
-
+  const userInitial = []
   const [notes, setNotes] = useState(notesInitial)
+  const [user,setUser] = useState(userInitial);
+
+  const getUsers = async () => {
+  
+    //api call
+
+    const response = await fetch(`${host}/api/auth/getuser`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'auth-token': localStorage.getItem('token')
+      },
+    });
+    const json = await response.json()
+    setUser(json)
+  }
+
 
     //get all Notes
     const getNotes = async (title, description, tag) => {
@@ -24,9 +41,6 @@ const NoteState = (props) => {
       setNotes(json)
     }
   
-
-
-
 
   //Add a Note
   const addNote = async (title, description, tag="personal") => {
@@ -98,8 +112,8 @@ const NoteState = (props) => {
     setNotes(newNotes);
   }
   return (
-    <NoteContext.Provider value={{ notes, addNote, deleteNote, editNote ,getNotes}}>
-      {props.children}
+    <NoteContext.Provider value={{ user,notes, addNote, deleteNote, editNote ,getNotes,getUsers}}>
+      {props.children} 
     </NoteContext.Provider>
   )
 }
